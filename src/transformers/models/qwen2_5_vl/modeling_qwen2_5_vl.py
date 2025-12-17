@@ -494,6 +494,7 @@ class Qwen2_5_VLRotaryEmbedding(nn.Module):
     def __init__(self, config: Qwen2_5_VLTextConfig, device=None):
         super().__init__()
         # BC: "rope_type" was originally "type"
+        print(f"config: {config}")
         if hasattr(config, "rope_scaling") and config.rope_scaling is not None:
             self.rope_type = config.rope_scaling.get("rope_type", config.rope_scaling.get("type"))
         else:
